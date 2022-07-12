@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #ebccfb;">
+   
+  <a class="navbar-brand" href="#" ><h4>Todo List</h4></a>
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+  
+      
+        
+        
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav mr-auto">
+          <!-- <li routerLinkActive="active" *ngIf="isAuthenticated">
+            <a routerLink="/recipes">Recipes</a>
+          </li> -->
+          <li routerLinkActive="active" *ngIf="!isloggedin" class="nav-item active"> 
+            <a routerLink="../auth" class="nav-link">Authenticate</a>
+          </li>
+          <li class="nav-item" *ngIf="isloggedin">
+            <button  (click)="OnLogout()" class="btn btn-outline-success my-2 my-sm-0 m-4">LogOut</button>   
+            <i class="bi bi-circle-fill">Online</i> 
+          </li>
+        </ul>
+        
+      
+      
+    </div>
+    </nav> 
+        

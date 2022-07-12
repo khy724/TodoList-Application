@@ -1,0 +1,53 @@
+
+<div class="todos">
+    
+    <form (ngSubmit)="OnAdd(f)" #f="ngForm" align="center" >
+        <ul class="flex-outer">
+        <li><input type="text" name="inputTodo" placeholder="Add New Task..."  class = "todo-input" ngModel></li>
+        <li><input type="submit" value="ADD" class="todo-submit"></li>
+    </ul>
+    </form>
+
+    <hr />
+    <hr />
+    
+<div  *ngFor="let todo of todos; let i=index" class="todo {{(todo.completed ? 'done' : '')}}">
+    
+    <div class="todo">
+        
+        <div class="content"><h4>{{i+1}}.</h4></div>
+        
+        <div class="content"  *ngIf="!(iseditting === i)"><h4>{{todo.content}}</h4></div>
+        <div class="content" *ngIf="iseditting === i">
+            <form (ngSubmit)="OnSave(i,f)" #f="ngForm">
+                <div class="form-group">
+                    <ul class="flex-outer">
+                    <li><input type="text" class="form-control" name="editted" placeholder="{{inputTodo.content}}" ngModel></li>
+                    <li><input type="submit" value="submit" class="btn btn-success"></li>
+                </ul>
+                  </div>
+            </form>
+        </div>
+        <div class="content">{{todo.date}}</div>
+        <!-- <button class="delete" type="button"  (click)="OnDelete(i)">Remove</button> -->
+        
+        <div class="content" *ngIf="!(iseditting === i)">
+            <!-- <button class="btn btn-primary btn-sm rounded-0 m-2" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="bi bi-star-fill"></i></button> -->
+           
+                <button class="btn btn-success btn-sm rounded-0 m-2" (click)="OnCompleted(i)"><i class="bi bi-check-lg"></i></button>
+                <button class="btn btn-primary btn-sm rounded-0 m-2" type="button" data-toggle="tooltip" data-placement="top" title="Edit" (click)="OnEdit(i)"><i class="bi bi-pencil-fill"></i></button>
+           
+                <button class="btn btn-danger btn-sm rounded-0 m-2 " type="button" data-toggle="tooltip" data-placement="top" title="Delete" (click)="OnDelete(i)"><i class="bi bi-x-lg"></i></button>
+        </div>
+                
+           
+    
+       
+    
+        <hr />
+    </div>
+
+
+</div>
+
+</div>

@@ -1,0 +1,33 @@
+{
+  "name": "npm-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "serverless deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1158.0",
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "config": "^3.3.7",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "joi-objectid": "^4.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.3.4",
+    "node-cron": "^3.0.0",
+    "nodemailer": "^6.7.5",
+    "serverless": "^3.19.0",
+    "serverless-http": "^3.0.1",
+    "serverless-offline-scheduler": "^0.5.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^8.8.0"
+  }
+}
