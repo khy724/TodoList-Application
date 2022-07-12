@@ -11,7 +11,7 @@ const todos = require('./routes/todos');
 const cors=require('cors');
 
 
-const dbURL = "mongodb+srv://demodb:yPLIjlgm9eQ8lz16@cluster0.7vizh.mongodb.net/?retryWrites=true&w=majority";
+const dbURL = config.get('mongodb_atlas_url');
 const connectionParams = {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -27,9 +27,7 @@ if (!config.get('jwtPrivateRefreshKey')){
   console.error('FATAL ERROR: jwt refreshkey not defined!');
   process.exit(1);
 }
-// MongoClient.connect(dbURL,connectionParams)
-//   .then(() => console.log('Connected to MongoDB...'))
-//   .catch(err => console.error(err));
+
 
   mongoose.connect(dbURL,connectionParams)
   .then(() => console.log('Connected to MongoDB...'))
@@ -47,10 +45,5 @@ console.log("index.js")
 app.use('/api/users',users);
 
 app.use('/api/todos',todos);
-// app.all("*", (req, res, next)=>{
-//     throw new AppError(`Requestec URL '${req.originalUrl}' not found`,404);
-// });
-// app.use(errorController);
-// const port = 3000;
-// app.listen(port,()=> console.log(`Listening to port ${port}...`));
+
 module.exports = app;
